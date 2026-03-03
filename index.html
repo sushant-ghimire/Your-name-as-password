@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name-Based Password Creator</title>
+     <script src="script.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            min-height: 100vh;
+        }
+        h1 {
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        .input-section {
+            margin-bottom: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        #output {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            word-break: break-all;
+            min-height: 50px;
+            backdrop-filter: blur(10px);
+        }
+        #asciiList {
+            margin-top: 20px;
+            background: rgba(0,0,0,0.2);
+            padding: 15px;
+            border-radius: 8px;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        @media (max-width: 600px) {
+            body { padding: 10px; }
+            button { flex: 1 1 45%; }
+            #output { font-size: 20px; }
+        }
+        .input-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.input-row input {
+    flex: 1;  /* Input takes remaining space */
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+}
+
+.clear-btn {
+    padding: 12px 20px;
+    white-space: nowrap;  /* Prevents button text wrap */
+}
+
+@media (max-width: 600px) {
+    .input-row {
+        flex-direction: column;  /* Stack on mobile */
+    }
+    .clear-btn {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <h1>Password Creator</h1>
+    
+    <div class="input-row">
+    <input type="text" id="nameInput" placeholder="Enter your name (e.g., Harry)">
+    <button onclick="clearOutput()" class="clear-btn">Clear</button>
+</div>
+
+<div class="buttons">
+    <button onclick="generatePassword()">Subsitution</button>
+    <button onclick="showASCIIToggle()">ASCII Values</button>
+</div>
+    
+    <div id="output"></div>
+
+</body>
+</html>
