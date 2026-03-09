@@ -45,6 +45,46 @@ function showASCIIToggle() {
   asciiVisible = !asciiVisible;
 }
 
+function generateAsciiPlus5() {
+    const name = document.getElementById('nameInput').value.trim();
+    if (!name) {
+        document.getElementById('output').textContent = 'Please enter a name!';
+        return;
+    }
+    
+    let shifted = '';
+    for (let i = 0; i < name.length; i++) {
+        const code = name.charCodeAt(i);
+        // Add 5, cap at printable range (32-126 for safety)
+        const newCode = Math.min(126, Math.max(32, code + 5));
+        shifted += String.fromCharCode(newCode);
+    }
+    
+    document.getElementById('output').textContent = shifted;
+    document.getElementById('asciiList').style.display = 'none';
+}
+
+
+function generateAsciiMinus5() {
+    const name = document.getElementById('nameInput').value.trim();
+    if (!name) {
+        document.getElementById('output').textContent = 'Please enter a name!';
+        return;
+    }
+    
+    let shifted = '';
+    for (let i = 0; i < name.length; i++) {
+        const code = name.charCodeAt(i);
+        // Add 5, cap at printable range (32-126 for safety)
+        const newCode = Math.min(126, Math.max(32, code - 5));
+        shifted += String.fromCharCode(newCode);
+    }
+    
+    document.getElementById('output').textContent = shifted;
+    document.getElementById('asciiList').style.display = 'none';
+}
+
+
 function clearOutput() {
   document.getElementById("output").textContent = "";
   document.getElementById("asciiList").style.display = "none";
